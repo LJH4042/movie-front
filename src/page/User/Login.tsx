@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import api from "../../api/AuthAPI";
 import { useAuth } from "../../context/AuthContext";
 import Header from "../Component/Header";
@@ -11,7 +11,7 @@ type LoginData = {
 
 function Login() {
   
-  const { setAccessToken, loading } = useAuth(); //인증 관리 Hook
+  const { setAccessToken, loading, accessToken } = useAuth(); //인증 관리 Hook
 
   // 로그인 폼 상태 관리
   const [loginForm, setLoginForm] = useState<LoginData>({
@@ -41,6 +41,13 @@ function Login() {
       alert(e);
     }
   };
+
+  // 인증 상태에 따른 리다이렉션 처리
+  useEffect(() => {
+    if (accessToken) {
+      window.location.href = "/mypage/profile";
+    }
+  }, [accessToken]);
 
   if (loading) return <div className="loading">불러오는 중...</div>;
 

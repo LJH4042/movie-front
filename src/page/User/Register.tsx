@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import Header from "../Component/Header";
 import "../../css/User/Register.css";
@@ -11,7 +11,7 @@ type RegisterData = {
 };
 
 function Register() {
-    const {loading } = useAuth(); //인증 관리 Hook
+    const { loading, accessToken } = useAuth(); //인증 관리 Hook
 
   // 회원가입 폼 상태 관리
   const [registerForm, setRegisterForm] = useState<RegisterData>({
@@ -40,6 +40,13 @@ function Register() {
       alert(err.response?.data || "회원가입 실패"); //회원가입 실패 시 서버 메시지 표시
     }
   };
+
+  // 인증 상태에 따른 리다이렉션 처리
+  useEffect(() => {
+    if (accessToken) {
+      window.location.href = "/mypage/profile";
+    }
+  }, [accessToken]);
 
   if (loading) return <div className="loading">불러오는 중...</div>;
 
