@@ -66,7 +66,7 @@ function Watch() {
 
           {/* 목록 */}
           {historyList.length === 0 ? (
-            <p className="empty">불러오는 중...</p>
+            <p className="empty">검색 결과가 없습니다.</p>
           ) : (
             <div className="watch-grid">
               {historyList.map((item) => (

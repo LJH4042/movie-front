@@ -61,7 +61,7 @@ function Recommend() {
           <h2>추천 영화</h2>
 
           {movies.length === 0 ? (
-            <p className="empty">불러오는 중...</p>
+            <p className="empty">검색 결과가 없습니다.</p>
           ) : (
             <div className="recommend-grid">
               {movies.map((item) => (
