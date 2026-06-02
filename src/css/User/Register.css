@@ -1,0 +1,48 @@
+/* 전체 배경 */
+.register-container {
+  padding: 20px;
+  background-color: #0f172a;
+  min-height: 100vh;
+  color: white;
+}
+
+/* 회원가입 박스 */
+.register-box {
+  background-color: rgba(15, 23, 42, 0.9);
+  padding: 40px;
+  border-radius: 12px;
+  width: 350px;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* 제목 */
+.register-box h2 {
+  color: white;
+  text-align: center;
+}
+
+/* input */
+.register-box input {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+/* 버튼 */
+.register-box button {
+  padding: 10px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.register-box button:hover {
+  background-color: #2563eb;
+}

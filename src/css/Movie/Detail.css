@@ -1,0 +1,120 @@
+.detail-container {
+  background-color: #0f172a;
+  min-height: 100vh;
+  color: white;
+  padding: 20px;
+}
+
+/* 상단 */
+.detail-top {
+  display: flex;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+/* 포스터 */
+.poster {
+  width: 300px;
+  border-radius: 12px;
+}
+
+/* 정보 */
+.info {
+  flex: 1;
+}
+
+.info h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* 메타 */
+.meta {
+  color: #94a3b8;
+  margin-bottom: 10px;
+}
+
+/* 장르 */
+.genres span {
+  margin-right: 10px;
+  background-color: #1e293b;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* 감독 */
+.director {
+  margin: 15px 0;
+  color: #cbd5f5;
+}
+
+/* 개요 */
+.overview {
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+/* 버튼 */
+.trailer-btn {
+  margin-top: 20px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ef4444;
+  color: white;
+  cursor: pointer;
+}
+
+.trailer-btn:hover {
+  background-color: #dc2626;
+}
+
+/* 예고편 */
+.trailer {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.trailer iframe {
+  width: 900px;
+  height: 500px;
+  border-radius: 12px;
+}
+
+/* 출연진 */
+.cast-title {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.cast-list {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.actor-card {
+  min-width: 120px;
+  text-align: center;
+}
+
+.actor-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.actor-card p {
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+/* 로딩 */
+.loading {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 20px;
+  color: #94a3b8;
+}

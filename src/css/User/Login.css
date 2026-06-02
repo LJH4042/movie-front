@@ -1,0 +1,51 @@
+/* 전체 배경 */
+.login-container {
+  padding: 20px;
+  background-color: #0f172a;
+  min-height: 100vh;
+  color: white;
+}
+
+/* 가운데 정렬 */
+.login-box {
+  width: 350px;
+  margin: 100px auto;
+  background-color: #0f172a;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+/* 제목 */
+.login-box h2 {
+  color: white;
+  margin-bottom: 25px;
+}
+
+/* input */
+.login-box input {
+  width: 90%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+/* 버튼 */
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #3b82f6;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* hover */
+.login-box button:hover {
+  background-color: #2563eb;
+}

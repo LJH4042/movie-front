@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #020617;
+  border-bottom: 1px solid #1e293b;
+}
+
+/* 로고 */
+.logo {
+  color: #3b82f6;
+  font-size: 22px;
+}
+
+/* 네비 */
+.header nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #cbd5f5;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.header nav a:hover {
+  color: #3b82f6;
+}
