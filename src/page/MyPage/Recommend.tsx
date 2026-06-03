@@ -4,6 +4,7 @@ import api from "../../api/AuthAPI";
 import { useNavigate } from "react-router-dom";
 import Header from "../Component/Header";
 import "../../css/MyPage/Recommend.css";
+import { Navigate } from "react-router-dom";
 
 // 추천 영화 데이터 타입 정의
 type RecommendMovieData = {
@@ -28,16 +29,12 @@ function Recommend() {
     }
   };
 
-  // 인증 상태에 따른 리다이렉션 처리
-  useEffect(() => {
-    if (!loading && !accessToken) {
-      window.location.href = "/login";
-    }
-  }, [accessToken, loading]);
-
   useEffect(() => {
     if (accessToken) fetchRecommend();
   }, [accessToken]);
+
+  //로그인 안 된 경우 리다이렉트
+  if(!loading && !accessToken) return <Navigate to="/login" replace />;
 
   if (loading) return <div className="loading">불러오는 중...</div>;
 

@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import api from "../../api/AuthAPI";
 import { useAuth } from "../../context/AuthContext";
 import Header from "../Component/Header";
 import "../../css/User/Login.css";
+import { Navigate } from "react-router-dom";
 
 type LoginData = {
   USER_ID: string; // 유저 아이디
@@ -10,7 +11,6 @@ type LoginData = {
 };
 
 function Login() {
-  
   const { setAccessToken, loading, accessToken } = useAuth(); //인증 관리 Hook
 
   // 로그인 폼 상태 관리
@@ -41,13 +41,9 @@ function Login() {
       alert(e);
     }
   };
-
-  // 인증 상태에 따른 리다이렉션 처리
-  useEffect(() => {
-    if (accessToken) {
-      window.location.href = "/mypage/profile";
-    }
-  }, [accessToken]);
+  
+  // 로그인 상태면 마이페이지로 이동
+  if (!loading && accessToken) return <Navigate to="/mypage/profile" replace />;
 
   if (loading) return <div className="loading">불러오는 중...</div>;
 

@@ -3,6 +3,7 @@ import { useAuth } from "../../context/AuthContext";
 import api from "../../api/AuthAPI";
 import Header from "../Component/Header";
 import "../../css/MyPage/Profile.css";
+import { Navigate } from "react-router-dom";
 
 type ProfileData = {
   USER_ID: string; // 유저 아이디
@@ -36,16 +37,14 @@ function Profile() {
     }
   };
 
-  //로그인 안 된 경우 리다이렉트
-  useEffect(() => {
-    if (!loading && !accessToken) window.location.href = "/login";
-  }, [accessToken, loading]);
-
   //프로필 가져오기
   useEffect(() => {
     if (accessToken) fetchProfile();
   }, [accessToken]);
 
+  //로그인 안 된 경우 리다이렉트
+  if(!loading && !accessToken) return <Navigate to="/login" replace />;
+  
   if (loading) return <div className="loading">불러오는 중...</div>;
 
   return (

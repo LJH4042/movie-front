@@ -4,6 +4,7 @@ import api from "../../api/AuthAPI";
 import { useNavigate } from "react-router-dom";
 import Header from "../Component/Header";
 import "../../css/MyPage/Watch.css";
+import { Navigate } from "react-router-dom";
 
 //시청 기록 데이터 타입
 type WatchHistoryData = {
@@ -32,15 +33,13 @@ function Watch() {
     }
   };
 
-  //로그인 안 된 경우 리다이렉트
-  useEffect(() => {
-    if (!loading && !accessToken) window.location.href = "/login";
-  }, [accessToken, loading]);
-
   //시청기록 가져오기
   useEffect(() => {
     if (accessToken) fetchWatchHistory(page);
   }, [accessToken, page]);
+
+  //로그인 안 된 경우 리다이렉트
+  if(!loading && !accessToken) return <Navigate to="/login" replace />;
 
   if (loading) return <div className="loading">불러오는 중...</div>;
 
