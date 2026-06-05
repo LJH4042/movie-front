@@ -1,10 +1,11 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, useRef } from "react";
 import api, { setAccessToken as setAxiosToken } from "../api/AuthAPI";
 
 const AuthContext = createContext<any>(null); //로그인 상태를 공유하기 위한 Context 생성
 
 //로그인 상태 관리 컴포넌트
 export function AuthProvider({ children }: any) {
+  const isInit = useRef(false);
 
   const [accessToken, setAccessToken] = useState<string | null>(null); //accessToken 상태 
   const [loading, setLoading] = useState(true); //마이페이지가 먼저 렌더링되는 거 방지하기 위해 로딩
@@ -22,6 +23,9 @@ export function AuthProvider({ children }: any) {
   };
 
   useEffect(() => {
+    if (isInit.current) return; //StrictMode에서 useEffect가 2번 실행되는 걸 방지
+    isInit.current = true; //"이미 실행했다"라고 표시 다음 실행을 막음
+
     initAuth(); //refreshToken으로 accessToken 발급
   }, []);
 
