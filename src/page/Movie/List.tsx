@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Header from "../Component/Header";
 import "../../css/Movie/List.css";
 
 //영화 목록 데이터 타입 정의
@@ -56,8 +55,6 @@ function List() {
 
   return (
     <div className="list-container">
-      <Header />
-
       {/* 검색 UI */}
       <div className="search-box">
         <input type="text" placeholder="영화 검색" value={inputQuery} onChange={(e) => setInputQuery(e.target.value)}/>

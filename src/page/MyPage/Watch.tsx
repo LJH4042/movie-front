@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import api from "../../api/AuthAPI";
 import { useNavigate } from "react-router-dom";
-import Header from "../Component/Header";
 import "../../css/MyPage/Watch.css";
 import { Navigate } from "react-router-dom";
 
@@ -45,8 +44,6 @@ function Watch() {
 
   return (
     <div className="watch-container">
-      <Header />
-
       <div className="mypage-layout">
         
         {/* 사이드바 */}

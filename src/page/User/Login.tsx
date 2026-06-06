@@ -1,7 +1,6 @@
 import { useState } from "react";
 import api from "../../api/AuthAPI";
 import { useAuth } from "../../context/AuthContext";
-import Header from "../Component/Header";
 import "../../css/User/Login.css";
 import { Navigate } from "react-router-dom";
 
@@ -49,8 +48,6 @@ function Login() {
 
   return (
     <div className="login-container">
-      <Header />
-
       <div className="login-box">
         <h2>로그인</h2>
 

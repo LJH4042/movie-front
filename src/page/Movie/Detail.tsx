@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 import api from "../../api/AuthAPI";
-import Header from "../Component/Header";
 import "../../css/Movie/Detail.css";
 
 //영화 장르 정보
@@ -73,8 +72,6 @@ function Detail() {
 
   return (
     <div className="detail-container">
-      <Header />
-
       <div className="detail-top">
         {/* 포스터 */}
         <img className="poster" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>

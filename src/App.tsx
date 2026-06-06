@@ -7,10 +7,12 @@ import List from "./page/Movie/List";
 import Detail from "./page/Movie/Detail";
 import Watch from "./page/MyPage/Watch";
 import Recommend from "./page/MyPage/Recommend";
+import Header from "./page/Component/Header";
 
 function App() {
   return (
     <AuthProvider>
+      <Header />
       <BrowserRouter>
         <Routes>
           <Route path="/" index element={<List />} />

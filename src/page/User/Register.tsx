@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
-import Header from "../Component/Header";
 import "../../css/User/Register.css";
 import { Navigate } from "react-router-dom";
 
@@ -49,8 +48,6 @@ function Register() {
 
   return (
     <div className="register-container">
-      <Header />
-
         <div className="register-box">
           <h2>회원가입</h2>
 
