@@ -27,9 +27,9 @@ function List() {
       let res;
 
       if (executeQuery.trim() !== "") { //검색어가 있을 때
-        res = await axios.get(`${import.meta.env.VITE_API_URL}/movie/search?query=${executeQuery}`); //검색한 목록
+        res = await axios.get(`${import.meta.env.VITE_API_URL}/api/movie/search?query=${executeQuery}`); //검색한 목록
       } else { //검색어가 없음 and 처음 페이지 로드 시
-        res = await axios.get(`${import.meta.env.VITE_API_URL}/movieList?page=${page}`); //전체 목록
+        res = await axios.get(`${import.meta.env.VITE_API_URL}/api/movieList?page=${page}`); //전체 목록
       }
 
       setMovies(res.data.results); //영화 목록 업데이트
