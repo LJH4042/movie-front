@@ -32,7 +32,8 @@ function List() {
         res = await axios.get(`/api/movieList?page=${page}`); //전체 목록
       }
 
-      setMovies(res.data.results); //영화 목록 업데이트
+      setMovies(res.data); //영화 목록 업데이트
+      console.log(res.data); //응답 데이터 확인
     } catch (err) {
       console.error(err);
     } finally {
