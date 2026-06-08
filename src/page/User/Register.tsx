@@ -33,7 +33,7 @@ function Register() {
   // 회원가입 Submit 핸들러
   const handleRegisterSubmit = async () => {
     try {
-      const res = await axios.post("/register", registerForm);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/register`, registerForm);
       alert(res.data); //회원가입 성공 시 서버 메시지 표시
       window.location.href = "/login"; //회원가입 성공 시 로그인 페이지로 이동
     } catch (err : any) {
