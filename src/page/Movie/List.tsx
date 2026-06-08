@@ -33,7 +33,7 @@ function List() {
       }
 
       setMovies(res.data); //영화 목록 업데이트
-      console.log(res.data); //응답 데이터 확인
+      console.log(res.data.results); //응답 데이터 확인
     } catch (err) {
       console.error(err);
     } finally {
