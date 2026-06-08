@@ -46,7 +46,7 @@ function Detail() {
   //예고편 가져오기 함수
   const handleTrailer = async () => {
     try{
-      const res = await axios.get(`/api/movie/${id}/trailer`);
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/movie/${id}/trailer`);
       setTrailerKey(res.data);
 
       //로그인 상태면 시청기록 저장
@@ -65,7 +65,7 @@ function Detail() {
 
   //영화 상세 정보 가져오기
   useEffect(() => {
-    axios.get(`/api/movie/${id}`).then(res => setMovie(res.data));
+    axios.get(`${import.meta.env.VITE_API_URL}/api/movie/${id}`).then(res => setMovie(res.data));
   }, [id]);
 
   if (!movie) return <div className="loading">불러오는 중...</div>;
