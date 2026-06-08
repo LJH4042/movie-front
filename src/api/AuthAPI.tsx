@@ -7,7 +7,7 @@ export const setAccessToken = (token: string | null) => accessToken = token;
 
 //axios 인스턴스 생성
 const AuthAPI = axios.create({
-  baseURL: "/api", //모든 요청의 기본 URL
+  baseURL: `${import.meta.env.VITE_API_URL}/api`, //모든 요청의 기본 URL
   withCredentials: true  //쿠키(refreshToken) 포함 요청 허용
 });
 
