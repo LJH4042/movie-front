@@ -63,10 +63,33 @@ function Detail() {
     }
   };
 
+  // const handleTrailer = async () => {
+  //   try{
+  //     const res = await axios.get(`/api/movie/${id}/trailer`);
+  //     setTrailerKey(res.data);
+
+  //     //로그인 상태면 시청기록 저장
+  //     if (accessToken && movie) {
+  //       await api.post("/watch/save", {
+  //         MOVIE_ID: movie.id, //영화 아이디
+  //         TITLE: movie.title, //영화 제목
+  //         POSTER_PATH: movie.poster_path, //영화 포스터 이미지 경로
+  //         GENRES: movie.genres.map(g => g.id).join(","), //영화 장르
+  //       });
+  //     }
+  //   }catch(err){
+  //     console.error(err);
+  //   }
+  // };
+
   //영화 상세 정보 가져오기
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_URL}/movie/${id}`).then(res => setMovie(res.data));
   }, [id]);
+
+    // useEffect(() => {
+    //   axios.get(`/api/movie/${id}`).then(res => setMovie(res.data));
+    // }, [id]);
 
   if (!movie) return <div className="loading">불러오는 중...</div>;
 

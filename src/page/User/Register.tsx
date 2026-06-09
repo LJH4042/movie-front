@@ -41,6 +41,16 @@ function Register() {
     }
   };
 
+  // const handleRegisterSubmit = async () => {
+  //   try {
+  //     const res = await axios.post(`/api/register`, registerForm);
+  //     alert(res.data); //회원가입 성공 시 서버 메시지 표시
+  //     window.location.href = "/login"; //회원가입 성공 시 로그인 페이지로 이동
+  //   } catch (err : any) {
+  //     alert(err.response?.data || "회원가입 실패"); //회원가입 실패 시 서버 메시지 표시
+  //   }
+  // };
+
   // 로그인 상태면 마이페이지로 이동
   if (!loading && accessToken) return <Navigate to="/mypage/profile" replace />;
 
