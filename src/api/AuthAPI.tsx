@@ -19,9 +19,9 @@ const AuthAPI = axios.create({
 //요청 인터셉터
 AuthAPI.interceptors.request.use((config) => {
 
-  //accessToken이 존재하면 요청 헤더에 Authorization 추가
-  if (accessToken) config.headers.Authorization = `Bearer ${accessToken}`; 
-  return config;
+    //accessToken이 존재하면 요청 헤더에 Authorization 추가
+    if (accessToken) config.headers.Authorization = `Bearer ${accessToken}`; 
+    return config;
   }, 
   
   (err) => Promise.reject(err) //요청 에러는 그대로 전달

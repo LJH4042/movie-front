@@ -60,7 +60,7 @@ function Recommend() {
             <div className="recommend-grid">
               {movies.map((item) => (
                 <div key={item.id} className="recommend-card" onClick={() => navigate(`/movie/${item.id}`)}>
-                  <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.title} />
+                  <img loading="lazy" src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.title} />
                   <h4>{item.title}</h4>
                 </div>
               ))}

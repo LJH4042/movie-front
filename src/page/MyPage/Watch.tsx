@@ -67,7 +67,7 @@ function Watch() {
             <div className="watch-grid">
               {historyList.map((item) => (
                 <div key={item.HISTORY_NO} className="watch-card" onClick={() => navigate(`/movie/${item.MOVIE_ID}`)}>
-                  <img src={`https://image.tmdb.org/t/p/w300${item.POSTER_PATH}`} alt={item.TITLE}/>
+                  <img loading="lazy" src={`https://image.tmdb.org/t/p/w300${item.POSTER_PATH}`} alt={item.TITLE}/>
                   <h4>{item.TITLE}</h4>
                 </div>
               ))}

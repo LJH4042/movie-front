@@ -87,9 +87,9 @@ function Detail() {
     axios.get(`${import.meta.env.VITE_API_URL}/movie/${id}`).then(res => setMovie(res.data));
   }, [id]);
 
-    // useEffect(() => {
-    //   axios.get(`/api/movie/${id}`).then(res => setMovie(res.data));
-    // }, [id]);
+  // useEffect(() => {
+  //   axios.get(`/api/movie/${id}`).then(res => setMovie(res.data));
+  // }, [id]);
 
   if (!movie) return <div className="loading">불러오는 중...</div>;
 
@@ -97,7 +97,7 @@ function Detail() {
     <div className="detail-container">
       <div className="detail-top">
         {/* 포스터 */}
-        <img className="poster" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
+        <img className="poster" src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`} alt={movie.title}/>
 
         {/* 정보 */}
         <div className="info">
@@ -138,7 +138,7 @@ function Detail() {
         {movie.cast.map(actor => (
           <div key={actor.id} className="actor-card">
             {actor.profile_path && (
-              <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}/>
+              <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt={actor.name} />
             )}
             <p>{actor.name}</p>
           </div>

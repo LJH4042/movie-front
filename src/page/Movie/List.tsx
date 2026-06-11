@@ -40,7 +40,7 @@ function List() {
     }
   };
 
-  //   //영화 목록 or 검색 결과 가져오기 함수
+  //영화 목록 or 검색 결과 가져오기 함수
   // const fetchMovies = async (page: number) => {
   //   try {
   //     setLoading(true); //로딩 시작
@@ -99,7 +99,7 @@ function List() {
           {movies.map((movie) => (
             <div key={movie.id} className="movie-card" onClick={() => navigate(`/movie/${movie.id}`)}>
               {movie.poster_path && (
-                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
+                <img loading="lazy" src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title}/>
               )}
               <h3>{movie.title}</h3>
             </div>
