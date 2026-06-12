@@ -99,7 +99,7 @@ function List() {
           {movies.map((movie) => (
             <div key={movie.id} className="movie-card" onClick={() => navigate(`/movie/${movie.id}`)}>
               {movie.poster_path && (
-                <img loading="lazy" src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title}/>
+                <img loading="lazy" src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title}/>
               )}
               <h3>{movie.title}</h3>
             </div>
