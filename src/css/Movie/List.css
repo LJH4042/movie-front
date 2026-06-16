@@ -24,9 +24,11 @@
   padding: 10px 16px;
   border-radius: 8px;
   border: none;
-  background-color: #3b82f6;
-  color: white;
   cursor: pointer;
+
+  /*접근성 향상*/
+  background-color: #2563eb;
+  color: #ffffff;
 }
 
 .search-box button:hover {
@@ -47,6 +49,12 @@
   background-color: #1e293b;
   color: white;
   cursor: pointer;
+}
+
+.pagination .next {
+  /*접근성 향상*/
+  background-color: #2563eb;
+  color: #ffffff;
 }
 
 .pagination button:hover {
@@ -87,7 +95,7 @@
   height: 300px;
 }
 
-.movie-card h3 {
+.movie-card h1 {
   margin-top: 10px;
   font-size: 14px;
 }

@@ -57,8 +57,8 @@ function Register() {
   if (loading) return <div className="loading">불러오는 중...</div>;
 
   return (
-    <div className="register-container">
-        <div className="register-box">
+    <main className="register-container">
+        <form className="register-box">
           <h2>회원가입</h2>
 
           <input name="USER_ID" type="text"placeholder="Username" value={registerForm.USER_ID} onChange={handleRegisterInputChange}/>
@@ -66,8 +66,8 @@ function Register() {
           <input name="USER_EMAIL" type="email" placeholder="Email" value={registerForm.USER_EMAIL} onChange={handleRegisterInputChange}/>
 
           <button onClick={handleRegisterSubmit}>Register</button>
-        </div>
-    </div>
+        </form>
+    </main>
   );
 }
 

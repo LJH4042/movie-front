@@ -43,12 +43,12 @@ function Watch() {
   if (loading) return <div className="loading">불러오는 중...</div>;
 
   return (
-    <div className="watch-container">
-      <div className="mypage-layout">
+    <main className="watch-container">
+      <section className="mypage-layout">
         
         {/* 사이드바 */}
         <aside className="sidebar">
-          <h3>My Page</h3>
+          <h1>My Page</h1>
           <ul>
             <li><a href="/mypage/profile">프로필</a></li>
             <li><a href="/mypage/watch">시청기록</a></li>
@@ -68,7 +68,7 @@ function Watch() {
               {historyList.map((item) => (
                 <div key={item.HISTORY_NO} className="watch-card" onClick={() => navigate(`/movie/${item.MOVIE_ID}`)}>
                   <img loading="lazy" src={`https://image.tmdb.org/t/p/w300${item.POSTER_PATH}`} alt={item.TITLE}/>
-                  <h4>{item.TITLE}</h4>
+                  <h3>{item.TITLE}</h3>
                 </div>
               ))}
             </div>
@@ -83,8 +83,8 @@ function Watch() {
             </div>
           )}
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 

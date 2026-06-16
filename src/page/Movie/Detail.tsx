@@ -94,8 +94,8 @@ function Detail() {
   if (!movie) return <div className="loading">불러오는 중...</div>;
 
   return (
-    <div className="detail-container">
-      <div className="detail-top">
+    <main className="detail-container">
+      <section className="detail-top">
         {/* 포스터 */}
         <img className="poster" src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`} alt={movie.title}/>
 
@@ -123,18 +123,18 @@ function Detail() {
 
           <button className="trailer-btn" onClick={handleTrailer}>▶ 예고편 보기 </button>
         </div>
-      </div>
+      </section>
 
       {/* 예고편 */}
       {trailerKey && (
-        <div className="trailer">
+        <section className="trailer">
           <iframe src={`https://www.youtube.com/embed/${trailerKey}`} allowFullScreen/>
-        </div>
+        </section>
       )}
 
       {/* 배우 */}
       <h2 className="cast-title">출연진</h2>
-      <div className="cast-list">
+      <section className="cast-list">
         {movie.cast.map(actor => (
           <div key={actor.id} className="actor-card">
             {actor.profile_path && (
@@ -143,8 +143,8 @@ function Detail() {
             <p>{actor.name}</p>
           </div>
         ))}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 

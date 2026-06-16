@@ -20,7 +20,7 @@
   border-right: 1px solid #1e293b;
 }
 
-.sidebar h3 {
+.sidebar h1 {
   font-size: 18px;
   margin-bottom: 25px;
   color: white;
@@ -110,8 +110,8 @@
   margin-top: 10px;
   padding: 12px;
 
-  background-color: #ef4444;
-  color: white;
+  background-color: #c91c1c;
+  color: #ffffff;
 
   border: none;
   border-radius: 8px;

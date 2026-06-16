@@ -47,8 +47,8 @@ function Login() {
   if (loading) return <div className="loading">불러오는 중...</div>;
 
   return (
-    <div className="login-container">
-      <div className="login-box">
+    <main className="login-container">
+      <section className="login-box">
         <h2>로그인</h2>
 
         <input id="USER_ID" name="USER_ID" type="text" placeholder="Username" value={loginForm.USER_ID} onChange={handleLoginInputChange}/> 
@@ -56,8 +56,8 @@ function Login() {
         <input id="USER_PW" name="USER_PW" type="password" placeholder="Password" value={loginForm.USER_PW} onChange={handleLoginInputChange}/>
 
         <button onClick={handleLoginSubmit}>Login</button>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 

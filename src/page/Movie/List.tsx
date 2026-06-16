@@ -62,7 +62,8 @@ function List() {
   // };
 
   //검색 함수
-  const handleSearch = () => {
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setPage(1); //검색 시 페이지 초기화
     setExecuteQuery(inputQuery); //검색 실행값 업데이트
   };
@@ -75,38 +76,42 @@ function List() {
   if (loading) return <div className="loading">불러오는 중...</div>;
 
   return (
-    <div className="list-container">
+    <main className="list-container">
+      
       {/* 검색 UI */}
-      <div className="search-box">
-        <input type="text" placeholder="영화 검색" value={inputQuery} onChange={(e) => setInputQuery(e.target.value)}/>
-        <button onClick={handleSearch}>검색</button>
-      </div>
+      <section className="search-box">
+        <form onSubmit={handleSearch}>
+          <input type="text" placeholder="영화 검색" value={inputQuery} onChange={(e) => setInputQuery(e.target.value)}/>
+          <button type="submit">검색</button>
+        </form>
+      </section>
 
       {/* 페이지 이동 */}
       {executeQuery.trim() === "" && (
-        <div className="pagination">
+        <nav className="pagination" aria-label="페이지 이동">
           <button onClick={() => setPage(page - 1)} disabled={page === 1}>이전</button>
           <span>페이지: {page}</span>
-          <button onClick={() => setPage(page + 1)}>다음</button>
-        </div>
+          <button className="next" onClick={() => setPage(page + 1)}>다음</button>
+        </nav>
       )}
 
       {/* 영화 목록 */}
-      {movies.length === 0 ? (
-        <div className="empty">검색 결과가 없습니다.</div>
-      ) : (
-        <div className="movie-grid">
-          {movies.map((movie) => (
-            <div key={movie.id} className="movie-card" onClick={() => navigate(`/movie/${movie.id}`)}>
+      <section className="movie-grid">
+        {movies.length === 0 ? (
+          <div className="empty">검색 결과가 없습니다.</div>
+        ) : (
+          movies.map((movie) => (
+            <article key={movie.id} className="movie-card" onClick={() => navigate(`/movie/${movie.id}`)}>
               {movie.poster_path && (
                 <img loading="lazy" src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title}/>
               )}
-              <h3>{movie.title}</h3>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+              <h1>{movie.title}</h1>
+            </article>
+          ))
+        )}
+      </section>
+
+    </main>
   );
 }
 

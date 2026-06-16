@@ -43,7 +43,7 @@ function Recommend() {
 
         {/* 사이드바 */}
         <aside className="sidebar">
-          <h3>My Page</h3>
+          <h1>My Page</h1>
           <ul>
             <li><a href="/mypage/profile">프로필</a></li>
             <li><a href="/mypage/watch">시청기록</a></li>
@@ -61,7 +61,7 @@ function Recommend() {
               {movies.map((item) => (
                 <div key={item.id} className="recommend-card" onClick={() => navigate(`/movie/${item.id}`)}>
                   <img loading="lazy" src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.title} />
-                  <h4>{item.title}</h4>
+                  <h3>{item.title}</h3>
                 </div>
               ))}
             </div>
