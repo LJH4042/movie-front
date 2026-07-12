@@ -1,18 +1,18 @@
-import { createContext, useContext, useState, useEffect, useRef } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import api, { setAccessToken as setAxiosToken } from "../api/AuthAPI";
 
 const AuthContext = createContext<any>(null); //로그인 상태를 공유하기 위한 Context 생성
 
 //로그인 상태 관리 컴포넌트
 export function AuthProvider({ children }: any) {
-  const isInit = useRef(false);
 
   const [accessToken, setAccessToken] = useState<string | null>(null); //accessToken 상태 
-  const [loading, setLoading] = useState(true); //마이페이지가 먼저 렌더링되는 거 방지하기 위해 로딩
+  const [loading, setLoading] = useState(true); //마이페이지가 먼저 렌더링되는 거 방지하기 위한 로딩 상태
 
-  //접속 시 refreshToken으로 accessToken 발급 함수
+  //애플리케이션이 다시 실행될 때 로그인 상태를 복구하는 함수
   const initAuth = async () => {
     try {
+      //아직 refreshToken이 있을 경우
       const res = await api.post("/reToken");  //refreshToken으로 accessToken 재발급 요청
       setAccessToken(res.data.accessToken); //새 accessToken 저장
     } catch (e: any) {
@@ -23,26 +23,22 @@ export function AuthProvider({ children }: any) {
   };
 
   useEffect(() => {
-    if (isInit.current) return; //StrictMode에서 useEffect가 2번 실행되는 걸 방지
-    isInit.current = true; //"이미 실행했다"라고 표시 다음 실행을 막음
-
-    initAuth(); //refreshToken으로 accessToken 발급
+    initAuth(); //로그인 상태를 복구하는 함수 실행
   }, []);
 
   useEffect(() => {
-    //accessToken이 변경될 때마다 axios에도 반영
-    setAxiosToken(accessToken); //accessToken이 변경될 때마다 axios에도 반영
+    setAxiosToken(accessToken); //새 accessToken을 메모리 변수에 저장
   }, [accessToken]);
 
   //전역 Context로 값 전달
   return (
-    <AuthContext.Provider value={{ accessToken, setAccessToken, loading, /*logout*/ }}>
+    <AuthContext.Provider value={{ accessToken, setAccessToken, loading }}>
       {children}
     </AuthContext.Provider>
   );
 }
 
-//다른 컴포넌트에서 AuthContext 쉽게 사용하기 위한 Hook
+//다른 컴포넌트에서 사용하기 위해 Hook으로 추출
 export function useAuth() {
   return useContext(AuthContext);
 }
