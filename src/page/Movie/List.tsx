@@ -20,27 +20,6 @@ function List() {
   const [loading, setLoading] = useState<boolean>(true); //로딩 상태 타입 적용
 
   //영화 목록 or 검색 결과 가져오기 함수
-  // const fetchMovies = async (page: number) => {
-  //   try {
-  //     setLoading(true); //로딩 시작
-
-  //     let res;
-
-  //     if (executeQuery.trim() !== "") { //검색어가 있을 때
-  //       res = await axios.get(`${import.meta.env.VITE_API_URL}/movie/search?query=${executeQuery}`); //검색한 목록
-  //     } else { //검색어가 없음 and 처음 페이지 로드 시
-  //       res = await axios.get(`${import.meta.env.VITE_API_URL}/movieList?page=${page}`); //전체 목록
-  //     }
-
-  //     setMovies(res.data.results); //영화 목록 업데이트
-  //   } catch (err) {
-  //     console.error(err);
-  //   } finally {
-  //     setLoading(false); //로딩 종료
-  //   }
-  // };
-
-  //영화 목록 or 검색 결과 가져오기 함수
   const fetchMovies = async (page: number) => {
     try {
       setLoading(true); //로딩 시작
@@ -48,9 +27,9 @@ function List() {
       let res;
 
       if (executeQuery.trim() !== "") { //검색어가 있을 때
-        res = await axios.get(`/api/movie/search?query=${executeQuery}`); //검색한 목록
+        res = await axios.get(`${import.meta.env.VITE_API_URL}/movie/search?query=${executeQuery}`); //검색한 목록
       } else { //검색어가 없음 and 처음 페이지 로드 시
-        res = await axios.get(`/api/movieList?page=${page}`); //전체 목록
+        res = await axios.get(`${import.meta.env.VITE_API_URL}/movieList?page=${page}`); //전체 목록
       }
 
       setMovies(res.data.results); //영화 목록 업데이트
@@ -60,6 +39,27 @@ function List() {
       setLoading(false); //로딩 종료
     }
   };
+
+  //영화 목록 or 검색 결과 가져오기 함수
+  // const fetchMovies = async (page: number) => {
+  //   try {
+  //     setLoading(true); //로딩 시작
+
+  //     let res;
+
+  //     if (executeQuery.trim() !== "") { //검색어가 있을 때
+  //       res = await axios.get(`/api/movie/search?query=${executeQuery}`); //검색한 목록
+  //     } else { //검색어가 없음 and 처음 페이지 로드 시
+  //       res = await axios.get(`/api/movieList?page=${page}`); //전체 목록
+  //     }
+
+  //     setMovies(res.data.results); //영화 목록 업데이트
+  //   } catch (err) {
+  //     console.error(err);
+  //   } finally {
+  //     setLoading(false); //로딩 종료
+  //   }
+  // };
 
   //검색 함수
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
